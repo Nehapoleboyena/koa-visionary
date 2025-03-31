@@ -5,44 +5,44 @@
 
 @layer base {
   :root {
-    --background: 220 20% 10%;
+    --background: 240 30% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 220 25% 15%;
+    --card: 240 35% 12%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 25% 15%;
+    --popover: 240 35% 12%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 60%;
+    --primary: 252 100% 67%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 20%;
+    --secondary: 250 40% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 25% 20%;
+    --muted: 240 35% 20%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 220 70% 55%;
+    --accent: 250 70% 55%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 25% 20%;
-    --input: 220 25% 20%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 35% 20%;
+    --input: 240 35% 20%;
+    --ring: 252 100% 67%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 220 25% 10%;
+    --sidebar-background: 240 35% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary: 252 100% 67%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 25% 15%;
+    --sidebar-accent: 240 35% 15%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 252 100% 67%;
   }
 }
 
@@ -63,3 +63,53 @@
 .page-transition {
   @apply animate-fade-in;
 }
+
+.card-glow {
+  @apply relative overflow-hidden;
+}
+
+.card-glow::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/30 opacity-0 transition-opacity duration-700;
+}
+
+.card-glow:hover::before {
+  @apply opacity-100;
+}
+
+.highlight-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+}
+
+.animated-gradient-border {
+  @apply relative rounded-lg p-[1px] overflow-hidden;
+  background: linear-gradient(90deg, hsl(var(--primary)/0.3), hsl(var(--accent)/0.3));
+  background-size: 400% 100%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.pulse-animation {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
