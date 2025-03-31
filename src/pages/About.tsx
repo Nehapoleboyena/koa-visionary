@@ -1,7 +1,6 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { GitHub, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const About = () => {
   const fadeIn = {
@@ -77,7 +76,7 @@ const About = () => {
                     
                     <div className="flex space-x-4 pt-2">
                       <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                        <GitHub size={20} />
+                        <Github size={20} />
                       </a>
                       <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                         <Linkedin size={20} />
