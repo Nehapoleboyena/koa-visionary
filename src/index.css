@@ -56,6 +56,7 @@
   }
 }
 
+/* Enhanced animations */
 .nav-icon {
   @apply transition-transform duration-300 hover:scale-110;
 }
@@ -88,6 +89,39 @@
   animation: gradient-shift 8s ease infinite;
 }
 
+/* Enhanced gradients and glows */
+.animated-purple-glow {
+  animation: purple-pulse 4s ease-in-out infinite;
+}
+
+@keyframes purple-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px 5px hsla(var(--primary), 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px 10px hsla(var(--accent), 0.6);
+  }
+}
+
+.moving-gradient {
+  background: linear-gradient(
+    45deg, 
+    hsla(var(--primary), 0.3) 0%, 
+    hsla(var(--accent), 0.3) 25%, 
+    hsla(var(--primary), 0.3) 50%, 
+    hsla(var(--accent), 0.3) 75%, 
+    hsla(var(--primary), 0.3) 100%
+  );
+  background-size: 400% 400%;
+  animation: moving-gradient 15s ease infinite;
+}
+
+@keyframes moving-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -113,3 +147,84 @@
   50% { opacity: 0.7; }
 }
 
+/* Added shimmer effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Glowing border */
+.glow-border {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.glow-border:before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    hsl(var(--primary)),
+    hsl(var(--accent)),
+    hsl(var(--primary))
+  );
+  background-size: 200% 200%;
+  animation: glow-border-rotate 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes glow-border-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particles animation */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background: hsla(var(--primary), 0.3);
+  border-radius: 50%;
+  animation: float-particle 15s infinite ease-in-out;
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(100px, -50px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(50px, 100px) scale(0.9);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translate(-50px, 50px) scale(1.2);
+    opacity: 0.4;
+  }
+}
