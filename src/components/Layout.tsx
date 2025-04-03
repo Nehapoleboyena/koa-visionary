@@ -9,11 +9,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-background bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/10 via-background to-background overflow-hidden relative">
-      {/* Animated background elements */}
+    <div className="min-h-screen bg-background overflow-hidden relative">
+      {/* Animated background elements with lighter colors */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <motion.div 
-          className="absolute top-20 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+          className="absolute top-20 left-1/4 w-72 h-72 bg-blue-200/40 rounded-full blur-3xl"
           animate={{
             x: [0, 10, -10, 0],
             scale: [1, 1.1, 0.9, 1],
@@ -27,7 +27,7 @@ const Layout = ({ children }: LayoutProps) => {
           }}
         />
         <motion.div 
-          className="absolute bottom-20 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
+          className="absolute bottom-20 right-1/4 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl"
           animate={{
             y: [0, -15, 15, 0],
             scale: [1, 0.9, 1.1, 1],
@@ -42,7 +42,7 @@ const Layout = ({ children }: LayoutProps) => {
           }}
         />
         <motion.div 
-          className="absolute top-1/2 right-1/3 w-56 h-56 bg-secondary/10 rounded-full blur-3xl"
+          className="absolute top-1/2 right-1/3 w-56 h-56 bg-pink-200/30 rounded-full blur-3xl"
           animate={{
             x: [0, -15, 15, 0],
             scale: [1, 1.2, 0.8, 1],
@@ -69,8 +69,8 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </motion.main>
       
-      <footer className="border-t border-border py-6 mt-12 relative z-10 backdrop-blur-sm">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-gray-200 py-6 mt-12 relative z-10 backdrop-blur-sm">
+        <div className="container mx-auto px-4 text-center text-sm text-gray-600">
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
